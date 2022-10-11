@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.json({ msg: "working" });
 });
 
-app.post("/email", (req, res) => {
+app.post(`/${process.env.END_POINT}`, (req, res) => {
   const { name, email, subject, message } = req.body;
   let transporter = nodemailer.createTransport({
     service: process.env.MAIL_SERVICE,
